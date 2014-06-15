@@ -1,0 +1,133 @@
+MODEL SARAH
+FILE /data/models/Woman1.obj
+MODEL SKYDOME
+FILE /data/models/skydome.obj
+MODEL PLAN
+FILE /data/models/plan.obj
+MODEL BETTY
+FILE /data/models/Woman2.obj
+MODEL BILA
+FILE /data/models/Bila.obj
+MODEL CUBE
+FILE /data/models/cube.obj
+MODEL QUAD
+FILE /data/models/quad.obj
+
+
+TEXTURE 2D SARAH
+FILE /data/textures/sarah_color.tga
+
+TEXTURE CUBE SKYBOX
+UP /data/textures/skybox/up.tga
+DOWN /data/textures/skybox/dn.tga
+LEFT /data/textures/skybox/lt.tga
+RIGHT /data/textures/skybox/rt.tga
+FRONT /data/textures/skybox/fr.tga
+BACK /data/textures/skybox/bk.tga
+
+TEXTURE 2D HEIGHTMAP
+FILE /data/textures/mountains.tga
+TEXTURE 2D LIGHTMAP
+FILE /data/textures/mountains_lightmap.tga
+TEXTURE 2D DIRT
+FILE /data/textures/Dirt.tga
+TEXTURE 2D GRASS
+FILE /data/textures/Grass.tga
+TEXTURE 2D ROCK
+FILE /data/textures/Rock.tga
+
+TEXTURE 2D BETTY
+FILE /data/textures/betty_color.tga
+TEXTURE 2D CROSS
+FILE /data/textures/cross_color.tga
+TEXTURE 2D CROSSNORMAL
+FILE /data/textures/cross_normal.tga
+TEXTURE 2D FIRE
+FILE /data/textures/fire.tga
+TEXTURE 2D DISP
+FILE /data/textures/disp.tga
+TEXTURE 2D FIREMASK
+FILE /data/textures/fire_mask.tga
+
+
+SHADER PHONGDIR
+V /data/shaders/phong_dir.vert
+F /data/shaders/phong_dir.frag
+UNIFORM u_lightDirection 3 0.0 0.0 -1.0
+UNIFORM u_lightColor 3 0.5 0.5 0.5
+STATE GL_CULL_FACE
+
+
+
+SHADER PHONGPOINT
+V /data/shaders/phong_point.vert
+F /data/shaders/phong_point.frag
+UNIFORM u_lightPosition 3 3.7 0.0 0.0
+UNIFORM u_lightColor 3 1.0 1.0 1.0
+STATE GL_CULL_FACE
+
+SHADER PHONGSPOT
+V /data/shaders/phong_spot.vert
+F /data/shaders/phong_spot.frag
+UNIFORM u_innerAngle 1 5.0
+UNIFORM u_outerAngle 1 7.0
+UNIFORM u_lightPosition 3 1.0 0.5 -4.0
+UNIFORM u_lightDirection 3 -1.0 0.0 0.0
+UNIFORM u_lightColor 3 1.0 1.0 1.0
+STATE GL_CULL_FACE
+
+SHADER TERRAIN
+V /data/shaders/terrain.vert
+F /data/shaders/terrain.frag
+UNIFORM u_fogColor 3 1.0 0.9 0.75
+STATE GL_CULL_FACE
+
+SHADER ENVMAP
+V /data/shaders/envmap.vert
+F /data/shaders/envmap.frag
+STATE GL_CULL_FACE
+
+SHADER NORMALMAPPING
+V /data/shaders/normal_mapping.vert
+F /data/shaders/normal_mapping.frag
+STATE GL_CULL_FACE
+
+SHADER PPSIMPLE
+V /data/shaders/pp_bw_vignette.vert
+F /data/shaders/pp_bw_vignette.frag
+STATE GL_DEPTH_TEST
+
+SHADER PPBLOOM
+V /data/shaders/pp_bloom.vert
+F /data/shaders/pp_bloom.frag
+STATE GL_DEPTH_TEST
+
+SHADER PPHIGHPASS
+V /data/shaders/pp_highpass.vert
+F /data/shaders/pp_highpass.frag
+STATE GL_DEPTH_TEST
+
+SHADER PPBLUR
+V /data/shaders/pp_blur.vert
+F /data/shaders/pp_blur.frag
+STATE GL_DEPTH_TEST
+
+SHADER UVDISP
+V /data/shaders/uvdisp.vert
+F /data/shaders/uvdisp.frag
+STATE GL_DEPTH_TEST
+
+SHADER PPDOF
+V /data/shaders/pp_dof.vert
+F /data/shaders/pp_dof.frag
+STATE GL_DEPTH_TEST
+
+SHADER OBJECT
+V /data/shaders/object.vert
+F /data/shaders/object.frag
+STATE GL_CULL_FACE
+
+SHADER SKYBOX
+V /data/shaders/skybox.vert
+F /data/shaders/skybox.frag
+STATE GL_DEPTH_TEST
